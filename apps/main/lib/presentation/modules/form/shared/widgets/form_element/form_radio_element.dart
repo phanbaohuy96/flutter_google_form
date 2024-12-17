@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:core/core.dart';
 import 'package:dartx/dartx.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +11,7 @@ import '../../../../../extentions/extention.dart';
 import '../form_element_response_widget.dart';
 import '../form_element_widget.dart';
 
+/// Customization
 class FormElementRadioWidget extends StatefulWidget {
   const FormElementRadioWidget({
     super.key,
@@ -195,6 +199,7 @@ class _FormElementRadioWidgetState extends State<FormElementRadioWidget>
   }
 }
 
+/// Response
 class FormElementResponseRadioWidget extends StatefulWidget {
   const FormElementResponseRadioWidget({
     super.key,
@@ -270,6 +275,190 @@ class _FormElementResponseRadioWidgetState
           ),
         );
       },
+    );
+  }
+}
+
+/// Statistic
+
+class FormElementResponseStatisticsRadioWidget extends StatefulWidget {
+  const FormElementResponseStatisticsRadioWidget({
+    super.key,
+    required this.element,
+    required this.responses,
+  });
+
+  final DynamicFormElement element;
+  final List<DynamicFormResponse> responses;
+
+  @override
+  State<FormElementResponseStatisticsRadioWidget> createState() =>
+      _FormElementResponseStatisticsRadioWidgetState();
+}
+
+class _FormElementResponseStatisticsRadioWidgetState
+    extends State<FormElementResponseStatisticsRadioWidget> {
+  final optionsColorMapper = <DynamicFormElementMetadata, Color>{};
+  int touchedIndex = -1;
+  Map<DynamicFormElementMetadata?, List<DynamicFormResponse>> data =
+      <DynamicFormElementMetadata?, List<DynamicFormResponse>>{};
+
+  @override
+  void initState() {
+    _setUpData();
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(
+    covariant FormElementResponseStatisticsRadioWidget oldWidget,
+  ) {
+    _setUpData();
+    super.didUpdateWidget(oldWidget);
+  }
+
+  void _setUpData() {
+    final options = [...?widget.element.metadata];
+    optionsColorMapper
+      ..clear()
+      ..addEntries(
+        options.mapIndex(
+          (e, i) {
+            return MapEntry(e, Colors.primaries[i % Colors.primaries.length]);
+          },
+        ),
+      );
+    data = widget.responses.groupBy<DynamicFormElementMetadata?>(
+      (res) => options.firstOrNullWhere(
+        (e) => e.id == res.optionId,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = context.textTheme;
+    final trans = translate(context);
+    return AspectRatio(
+      aspectRatio: 1.3,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            widget.element.title ?? trans.untitled,
+            style: textTheme.titleMedium,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            '${widget.responses.length} ${trans.responses.toLowerCase()}',
+            style: textTheme.labelMedium,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: _buildChart(),
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ...optionsColorMapper.entries.mapIndex((e, i) {
+                      final isTouched = touchedIndex >= 0 &&
+                          data.entries.elementAt(touchedIndex).key == e.key;
+                      return Text.rich(
+                        TextSpan(
+                          text: '● ',
+                          style: textTheme.bodyMedium?.copyWith(
+                            color: e.value,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: e.key.lable ?? '',
+                              style: textTheme.bodyMedium?.copyWith(
+                                color: isTouched ? null : Colors.grey.shade600,
+                                fontWeight: isTouched ? FontWeight.bold : null,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  List<PieChartSectionData> showingSections(double radius) {
+    return data.entries.mapIndex<PieChartSectionData>(
+      (e, i) {
+        final isTouched = i == touchedIndex;
+        final value = e.value.length.toDouble();
+        return PieChartSectionData(
+          color: optionsColorMapper[e.key],
+          value: e.value.length.toDouble(),
+          title: [
+            (value / widget.responses.length * 100).toStringAsMaxFixed(2),
+            '%',
+          ].join(''),
+          titlePositionPercentageOffset: 0.55,
+          radius: radius,
+          borderSide: isTouched
+              ? const BorderSide(
+                  color: Colors.white,
+                  width: 6,
+                )
+              : BorderSide.none,
+        );
+      },
+    ).toList();
+  }
+
+  Widget _buildChart() {
+    return AspectRatio(
+      aspectRatio: 1,
+      child: LayoutBuilder(
+        builder: (context, cons) {
+          final radius = min(cons.maxHeight, cons.maxWidth) * 0.45;
+          return PieChart(
+            PieChartData(
+              pieTouchData: PieTouchData(
+                touchCallback: (FlTouchEvent event, pieTouchResponse) {
+                  setState(() {
+                    if (!event.isInterestedForInteractions ||
+                        pieTouchResponse == null ||
+                        pieTouchResponse.touchedSection == null) {
+                      touchedIndex = -1;
+                      return;
+                    }
+                    touchedIndex =
+                        pieTouchResponse.touchedSection!.touchedSectionIndex;
+                  });
+                },
+              ),
+              startDegreeOffset: 180,
+              borderData: FlBorderData(
+                show: false,
+              ),
+              sectionsSpace: 1,
+              centerSpaceRadius: 0,
+              sections: showingSections(radius),
+            ),
+          );
+        },
+      ),
     );
   }
 }
