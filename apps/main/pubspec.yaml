@@ -31,6 +31,7 @@ dependencies:
   freezed: ^2.4.5
 
   #ui
+  fl_chart: 0.69.0
   
 
 dev_dependencies:
