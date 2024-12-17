@@ -367,6 +367,12 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Gửi yêu phản hồi thành công'**
   String get submitResponseSuccessfully;
+
+  /// No description provided for @clearForm.
+  ///
+  /// In vi, this message translates to:
+  /// **'Xoá nháp'**
+  String get clearForm;
 }
 
 class _AppLocalizationsDelegate

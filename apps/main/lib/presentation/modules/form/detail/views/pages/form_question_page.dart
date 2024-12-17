@@ -105,21 +105,37 @@ class _FormQuestionPageState extends State<FormQuestionPage> {
   }
 
   Widget _buildFooter(DynamicFormDetailState state) {
-    Widget button;
+    List<Widget> buttons;
 
     if (state is SubmitResponseSuccess) {
-      button = ThemeButton.primary(
-        title: trans.submitAnotherOne,
-        onPressed: parent.submitAnotherOne,
-      );
+      buttons = [
+        ThemeButton.primary(
+          title: trans.submitAnotherOne,
+          onPressed: parent.submitAnotherOne,
+        ),
+      ];
     } else {
-      button = ThemeButton.primary(
-        title: trans.submit,
-        onPressed: parent.submit,
-      );
+      buttons = [
+        ThemeButton.outline(
+          title: trans.clearForm,
+          onPressed: parent.submitAnotherOne,
+        ),
+        ThemeButton.primary(
+          title: trans.submit,
+          onPressed: parent.submit,
+        ),
+      ];
     }
     return FooterWidget(
-      child: button,
+      child: Row(
+        children: [
+          ...buttons.map<Widget>((e) => Expanded(child: e)).insertSeparator(
+                (index) => const SizedBox(
+                  width: 16,
+                ),
+              ),
+        ],
+      ),
     );
   }
 }

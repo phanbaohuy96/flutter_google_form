@@ -43,5 +43,6 @@
   "submit": "Gửi phản hồi",
   "pleaseFillTheRequiredResponse": "Vui lòng phản hồi đủ thông tin yêu cầu",
   "submitAnotherOne": "Gửi thêm phản hồi",
-  "submitResponseSuccessfully": "Gửi yêu phản hồi thành công"
+  "submitResponseSuccessfully": "Gửi yêu phản hồi thành công",
+  "clearForm": "Xoá nháp"
 }

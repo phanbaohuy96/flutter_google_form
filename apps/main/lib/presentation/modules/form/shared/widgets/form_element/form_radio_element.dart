@@ -339,24 +339,24 @@ class _FormElementResponseStatisticsRadioWidgetState
   Widget build(BuildContext context) {
     final textTheme = context.textTheme;
     final trans = translate(context);
-    return AspectRatio(
-      aspectRatio: 1.3,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Text(
-            widget.element.title ?? trans.untitled,
-            style: textTheme.titleMedium,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            '${widget.responses.length} ${trans.responses.toLowerCase()}',
-            style: textTheme.labelMedium,
-          ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Text(
+          widget.element.title ?? trans.untitled,
+          style: textTheme.titleMedium,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          '${widget.responses.length} ${trans.responses.toLowerCase()}',
+          style: textTheme.labelMedium,
+        ),
+        if (widget.responses.isNotEmpty) ...[
           const SizedBox(
             height: 8,
           ),
-          Expanded(
+          AspectRatio(
+            aspectRatio: 1.3,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -397,7 +397,7 @@ class _FormElementResponseStatisticsRadioWidgetState
             ),
           ),
         ],
-      ),
+      ],
     );
   }
 
@@ -415,6 +415,9 @@ class _FormElementResponseStatisticsRadioWidgetState
           ].join(''),
           titlePositionPercentageOffset: 0.55,
           radius: radius,
+          titleStyle: context.textTheme.titleMedium?.copyWith(
+            color: Colors.white,
+          ),
           borderSide: isTouched
               ? const BorderSide(
                   color: Colors.white,
