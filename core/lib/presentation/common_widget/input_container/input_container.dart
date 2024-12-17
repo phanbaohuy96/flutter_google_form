@@ -178,6 +178,7 @@ class _InputContainerState extends State<InputContainer> {
           scrollPadding: widget.scrollPadding,
           readOnly: widget.readOnly || !widget.enable,
           controller: value.tdController,
+          enabled: widget.enable,
           maxLength: widget.maxLength,
           autofocus: widget.autofocus,
           decoration: InputDecoration(
@@ -205,7 +206,7 @@ class _InputContainerState extends State<InputContainer> {
               minWidth: widget.prefixIconSize,
             ),
             isDense: widget.isDense,
-            fillColor: widget.enable ? widget.fillColor : null,
+            fillColor: widget.fillColor,
             counterStyle: appTextTheme.bodySmall,
           ),
           keyboardType: widget.keyboardType,

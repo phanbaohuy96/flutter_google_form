@@ -5,6 +5,7 @@ part of 'upsert_form_bloc.dart';
 class _ViewModel with _$ViewModel {
   const factory _ViewModel({
     @Default(DynamicForm()) final DynamicForm form,
+    @Default(-1) final int focusedIndex,
   }) = __ViewModel;
 }
 
@@ -22,6 +23,8 @@ abstract class UpsertFormState {
   }
 
   DynamicForm get form => viewModel.form;
+
+  int get focusedIndex => viewModel.focusedIndex;
 
   List<DynamicFormElement> get elements => [...?form.elements];
 }

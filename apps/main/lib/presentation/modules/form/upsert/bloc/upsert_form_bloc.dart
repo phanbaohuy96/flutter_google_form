@@ -35,6 +35,7 @@ class UpsertFormBloc extends AppBlocBase<UpsertFormEvent, UpsertFormState> {
     on<RemoveFormElementEvent>(_onRemoveFormElementEvent);
     on<UpdateFormElementEvent>(_onUpdateFormElementEvent);
     on<SaveFormEvent>(_onSaveFormEvent);
+    on<RequestForcusEvent>(_onRequestForcusEvent);
   }
 
   FutureOr<void> _onUpdateFormEvent(
@@ -59,14 +60,6 @@ class UpsertFormBloc extends AppBlocBase<UpsertFormEvent, UpsertFormState> {
         ...state.elements,
         event.element.copyWith(
           id: const Uuid().v4(),
-          metadata: [
-            ...?event.element.metadata?.map(
-              (e) => e.copyWith(
-                id: const Uuid().v4(),
-                lable: 'Option 1',
-              ),
-            ),
-          ],
         ),
       ],
     );
@@ -75,6 +68,7 @@ class UpsertFormBloc extends AppBlocBase<UpsertFormEvent, UpsertFormState> {
       state.copyWith(
         viewModel: state.viewModel.copyWith(
           form: updatedForm,
+          focusedIndex: (updatedForm.elements?.length ?? 0) - 1,
         ),
       ),
     );
@@ -138,5 +132,18 @@ class UpsertFormBloc extends AppBlocBase<UpsertFormEvent, UpsertFormState> {
       event.completer.complete(null);
       rethrow;
     }
+  }
+
+  FutureOr<void> _onRequestForcusEvent(
+    RequestForcusEvent event,
+    Emitter<UpsertFormState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        viewModel: state.viewModel.copyWith(
+          focusedIndex: event.index,
+        ),
+      ),
+    );
   }
 }

@@ -35,3 +35,9 @@ class SaveFormEvent extends UpsertFormEvent {
 
   SaveFormEvent(this.completer);
 }
+
+class RequestForcusEvent extends UpsertFormEvent {
+  final int index;
+
+  RequestForcusEvent(this.index);
+}

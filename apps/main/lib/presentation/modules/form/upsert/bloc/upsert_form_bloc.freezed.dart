@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ViewModel {
   DynamicForm get form => throw _privateConstructorUsedError;
+  int get focusedIndex => throw _privateConstructorUsedError;
 
   /// Create a copy of _ViewModel
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +32,7 @@ abstract class _$ViewModelCopyWith<$Res> {
           _ViewModel value, $Res Function(_ViewModel) then) =
       __$ViewModelCopyWithImpl<$Res, _ViewModel>;
   @useResult
-  $Res call({DynamicForm form});
+  $Res call({DynamicForm form, int focusedIndex});
 
   $DynamicFormCopyWith<$Res> get form;
 }
@@ -52,12 +53,17 @@ class __$ViewModelCopyWithImpl<$Res, $Val extends _ViewModel>
   @override
   $Res call({
     Object? form = null,
+    Object? focusedIndex = null,
   }) {
     return _then(_value.copyWith(
       form: null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as DynamicForm,
+      focusedIndex: null == focusedIndex
+          ? _value.focusedIndex
+          : focusedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -80,7 +86,7 @@ abstract class _$$_ViewModelImplCopyWith<$Res>
       __$$_ViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DynamicForm form});
+  $Res call({DynamicForm form, int focusedIndex});
 
   @override
   $DynamicFormCopyWith<$Res> get form;
@@ -100,12 +106,17 @@ class __$$_ViewModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? form = null,
+    Object? focusedIndex = null,
   }) {
     return _then(_$_ViewModelImpl(
       form: null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as DynamicForm,
+      focusedIndex: null == focusedIndex
+          ? _value.focusedIndex
+          : focusedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -113,15 +124,19 @@ class __$$_ViewModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ViewModelImpl implements __ViewModel {
-  const _$_ViewModelImpl({this.form = const DynamicForm()});
+  const _$_ViewModelImpl(
+      {this.form = const DynamicForm(), this.focusedIndex = -1});
 
   @override
   @JsonKey()
   final DynamicForm form;
+  @override
+  @JsonKey()
+  final int focusedIndex;
 
   @override
   String toString() {
-    return '_ViewModel(form: $form)';
+    return '_ViewModel(form: $form, focusedIndex: $focusedIndex)';
   }
 
   @override
@@ -129,11 +144,13 @@ class _$_ViewModelImpl implements __ViewModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ViewModelImpl &&
-            (identical(other.form, form) || other.form == form));
+            (identical(other.form, form) || other.form == form) &&
+            (identical(other.focusedIndex, focusedIndex) ||
+                other.focusedIndex == focusedIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, form);
+  int get hashCode => Object.hash(runtimeType, form, focusedIndex);
 
   /// Create a copy of _ViewModel
   /// with the given fields replaced by the non-null parameter values.
@@ -145,10 +162,13 @@ class _$_ViewModelImpl implements __ViewModel {
 }
 
 abstract class __ViewModel implements _ViewModel {
-  const factory __ViewModel({final DynamicForm form}) = _$_ViewModelImpl;
+  const factory __ViewModel({final DynamicForm form, final int focusedIndex}) =
+      _$_ViewModelImpl;
 
   @override
   DynamicForm get form;
+  @override
+  int get focusedIndex;
 
   /// Create a copy of _ViewModel
   /// with the given fields replaced by the non-null parameter values.
