@@ -33,7 +33,8 @@ class _FormElementRadioWidgetState extends State<FormElementRadioWidget>
     return Column(
       children: [
         ...optionts.map(_buildOption),
-        if (optionts.length < widget.maxOptions) addOptionButton(),
+        if (optionts.length < widget.maxOptions && enableToCustomize)
+          addOptionButton(),
       ],
     );
   }
