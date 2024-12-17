@@ -1,0 +1,38 @@
+key,vi,en
+inform,Thông Báo,Inform
+ok,Ok,Ok
+cancel,Hủy,Cancel
+confirm,Xác Nhận,Confirm
+ignore,Bỏ Qua,Ignore
+sessionExpired,Phiên bản quá hạn. Vui lòng đăng nhập lại!,Your session is expired. Please log in again!
+skip,Bỏ Qua,Skip
+fullName,Họ và tên,Fullname
+enterFullName,Nhập họ và tên,Enter fullname
+email,Email,Email
+enterEmail,Nhập địa chỉ email,Input email address
+pleaseEnterEmail,Vui lòng nhập email,Please input email
+finish,Hoàn thành,Finish
+appVersion,Phiên bản: %s,Version: %s
+loginRequired,Vui lòng đăng nhập để tiếp tục,Please login to continue
+login,Đăng Nhập,Login
+homepage,Trang chủ,Home
+accountPage,Tài khoản,Account
+forceUpdate,Vui lòng tải ngay phiên bản mới nhất %s,New version %s now available on store. Get it up to date
+update,Cập Nhật,Update
+close,Đóng,Close
+createForm,Tạo biểu mẫu,Create form
+formListing,Danh sách biểu mẫu,Form listing
+save,Lưu,Save
+discardFormConfirmMsg,"Biểu mẩu chưa được lưu, bạn có chắc chăn muốn thoát","Form not saved, are you sure you want to exit?"
+mulitpleChoice,Chọn nhiều,Mulitple choice
+paragraph,Đoạn văn,Paragraph
+question,Câu hỏi,Question
+addQuestion,Thêm câu hỏi,Add question
+inputQuestion,Nhập câu hỏi,Input question
+longAnswerText,Văn bản trả lời,Long answer text
+or,hoặc,or
+option,Tuỳ chọn,Option
+addOption,Thêm tuỳ chọn,Add option
+add,thêm,add
+other,khác,other
+required,Bắt buộc,Required

@@ -1,0 +1,26 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+        {
+            "name": "Dev Debug",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceRoot}/apps/main/lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+            ],
+        },
+        {
+            "name": "Dev Release",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceRoot}/apps/main/lib/main_dev.dart",
+            "args": [
+                "--release",
+                "--flavor",
+                "dev",
+            ],
+        },
+    ]
+}
