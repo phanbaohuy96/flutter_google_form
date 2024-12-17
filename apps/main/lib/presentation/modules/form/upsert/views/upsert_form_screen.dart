@@ -99,18 +99,21 @@ class _UpsertFormScreenState extends StateBase<UpsertFormScreen> {
             ),
             SliverList.separated(
               itemBuilder: (context, index) {
+                final focused = index == state.focusedIndex;
                 return Card(
                   child: InkWell(
-                    onTap: () {
-                      bloc.add(RequestForcusEvent(index));
-                    },
+                    onTap: focused
+                        ? null
+                        : () {
+                            bloc.add(RequestForcusEvent(index));
+                          },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: FormElementFactoryWidget(
                         element: state.elements[index],
                         onUpdate: _onUpdateElement,
                         onRemove: _onRemoveElement,
-                        focused: index == state.focusedIndex,
+                        focused: focused,
                       ),
                     ),
                   ),
