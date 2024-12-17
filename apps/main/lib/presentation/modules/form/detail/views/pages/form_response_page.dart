@@ -87,6 +87,11 @@ class _FormResponsePageState extends State<FormResponsePage> {
             ),
           ),
         ),
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            height: 24,
+          ),
+        ),
       ],
     );
   }
