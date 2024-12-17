@@ -1,0 +1,10 @@
+# dart run module_generator:generate_app_identifier
+
+android:
+  dev:
+    package: com.avnon.test.googleForm
+    name: AVNON TEST
+ios:
+  dev:
+    package: com.avnon.test.googleForm
+    name: AVNON TEST

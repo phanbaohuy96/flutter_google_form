@@ -1,0 +1,4 @@
+enum DashboardPage {
+  home,
+  account,
+}

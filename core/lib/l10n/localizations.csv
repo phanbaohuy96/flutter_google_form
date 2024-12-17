@@ -1,0 +1,80 @@
+key,vi,en
+inform,Thông Báo,Inform
+ok,Ok,Ok
+cancel,Hủy,Cancel
+confirm,Xác Nhận,Confirm
+noInternet,"Kết nối thất bại.
+Vui lòng kiểm tra lại kết nối và thử lại","Connection errors.
+Please check your network connection and try again"
+technicalIssues,"Oops! .Đã có sự cố xảy ra.
+Vui lòng kiểm tra lại kết nối hoặc thử lại sau","Oops! .There seems to be a technical problem.
+Please check your connection or try again later"
+requestRestricted,"Gửi yêu cầu quá nhiều lần\nVui lòng chờ trong giây lát để thử lại","Gửi yêu cầu quá nhiều lần\nVui lòng chờ trong giây lát để thử lại"
+serverMaintenance,Server đang bảo trì. Vui lòng thử lại sau.,Server is unavailable at this time. Please try again later.
+connectionTimeout,Kết nối quá hạn.,Connection timmed out.
+unknownError,"Đã xảy ra lỗi.
+Vui lòng thử lại sau","Something went wrong.
+Please try again later"
+sessionExpired,Phiên bản quá hạn. Vui lòng đăng nhập lại!,Your session is expired. Please log in again!
+loading,Đang tải,Loading
+male,Nam,Male
+female,Nữ,Female
+pleaseEnableGPS,Vui lòng bật định vị để tiếp tục trải nghiệm,Vui lòng bật định vị để tiếp tục trải nghiệm
+avatar,Hình đại diện,Hình đại diện
+camera,Máy Ảnh,Camera
+choosePhoto,Chọn ảnh,Chọn ảnh
+choosePhotoOrVideo,Chọn ảnh hoặc video,Chọn ảnh hoặc video
+chooseVideo,Chọn video,Chọn video
+close,Đóng,Close
+error,Lỗi,Error
+gallery,Thư Viện,Gallery
+orderByAsc,Giá Thấp,Giá Thấp
+orderByDesc,Giá Cao,Giá Cao
+search,Tìm Kiếm,Search
+selectPhoto,Chọn hình,Chọn hình
+takePhoto,Chụp hình,Chụp hình
+warning,Chú Ý,Warning
+haveNoPermission,Không có quyền truy cập. Vui lòng vào cài đặt và cấp quyền cho ứng dụng để tiếp tục,Không có quyền truy cập. Vui lòng vào cài đặt và cấp quyền cho ứng dụng để tiếp tục
+openSetting,Mở Cài Đặt,Open Setting
+openInExternalBrowser,Mở bằng trình duyệt,Mở bằng trình duyệt
+copyLink,Sao chép đường dẫn,Sao chép đường dẫn
+copied,Đã sao chép,Đã sao chép
+featureUnderDevelopment,Tính năng đang được phát triển,tính năng đang được phát triển
+termAndCondition,Terms and Conditions,Terms and Conditions
+privacyPolicy,Privacy Policy,Privacy Policy
+requestPermission,Yêu cầu cấp quyền,Yêu cầu cấp quyền
+firebaseAuthExceptionTypeAccountExistsWithDifferentCredential,Đã xảy ra lỗi khi đăng nhập.,An error occurred while signing in.
+firebaseAuthExceptionTypeInvalidCredential,Đã xảy ra lỗi khi đăng nhập.,An error occurred while signing in.
+firebaseAuthExceptionTypeOperationNotAllowed,Đã xảy ra lỗi khi đăng nhập.,An error occurred while signing in.
+firebaseAuthExceptionTypeUserDisabled,Người dùng liên kết với thông tin này đã bị vô hiệu hóa.,The user associated with this credential has been disabled.
+firebaseAuthExceptionTypeUserNotFound,Người dùng không tồn tại. Vui lòng kiểm tra thông tin đăng nhập và thử lại.,User not found. Please check your credentials and try again.
+firebaseAuthExceptionTypeInvalidVerificationCode,Mã xác minh không hợp lệ.,Invalid verification code.
+firebaseAuthExceptionTypeInvalidVerificationId,ID xác minh không hợp lệ.,Invalid verification ID.
+firebaseAuthExceptionTypeWrongPassword,Sai mật khẩu. Vui lòng kiểm tra thông tin đăng nhập và thử lại.,Wrong password. Please check your credentials and try again.
+firebaseAuthExceptionTypeUnknown,Đã xảy ra lỗi khi đăng nhập.,An error occurred while signing in.
+firebaseAuthExceptionSessionExpired,Mã OTP đã hết hạn. Vui lòng gửi lại OTP mới để thử lại.,The OTP has expired. Please re-send the new OTP to try again.
+today,Hôm nay,Hôm nay
+yesterday,Hôm qua,Hôm qua
+thisWeek,Tuần này,Tuần này
+weekAgo,Tuần trước,Tuần trước
+thisMonth,Tháng này,Tháng này
+monthAgo,Tháng trước,Tháng trước
+selectDate,Chọn ngày,Chọn ngày
+fromDate,Từ ngày,Từ ngày
+toDate,Đến ngày,Đến ngày
+month,Tháng,Tháng
+threeDaysAgo,3 ngày trước,3 days ago
+sevenDaysAgo,7 ngày trước,7 days ago
+thirtyDaysAgo,30 ngày trước,30 days ago
+thisQuarter,Quý này,Quý này
+quarterAgo,Quý trước,Quý trước
+thisYear,Năm này,Năm này
+yearAgo,Năm trước,Năm trước
+selectTimePeriod,Chọn khoảng thời gian,Chọn khoảng thời gian
+reset,Đặt lại,Đặt lại
+apply,Áp dụng,Áp dụng
+manual,Tuỳ chọn,Tuỳ chọn
+day,Ngày,Ngày
+viewMore,Xem thêm,Xem thêm
+seeLess,Thu gọn,Thu gọn
+fullTime,Toàn thời gian,Toàn thời gian
