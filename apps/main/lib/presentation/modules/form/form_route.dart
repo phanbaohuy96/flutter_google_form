@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../di/di.dart';
-import 'upsert/bloc/upsert_form_bloc.dart';
-import 'upsert/views/upsert_form_screen.dart';
+import 'form.dart';
 
 class UpsertFormRoute {
   Map<String, WidgetBuilder> getAll(RouteSettings settings) => {
@@ -13,5 +12,8 @@ class UpsertFormRoute {
             child: const UpsertFormScreen(),
           );
         },
+
+        /// Listing
+        ...FormListingRoute().getAll(settings),
       };
 }

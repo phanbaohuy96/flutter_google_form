@@ -2,6 +2,12 @@ part of 'upsert_form_bloc.dart';
 
 abstract class UpsertFormEvent {}
 
+class UpdateFormEvent extends UpsertFormEvent {
+  final DynamicForm form;
+
+  UpdateFormEvent(this.form);
+}
+
 class AddFormElementEvent extends UpsertFormEvent {
   final DynamicFormElement element;
 

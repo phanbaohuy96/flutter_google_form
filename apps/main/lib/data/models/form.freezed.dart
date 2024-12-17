@@ -22,6 +22,8 @@ DynamicForm _$DynamicFormFromJson(Map<String, dynamic> json) {
 mixin _$DynamicForm {
   @JsonKey(name: 'id', fromJson: asOrNull)
   String? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title', fromJson: asOrNull)
+  String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'elements')
   List<DynamicFormElement>? get elements => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_user')
@@ -47,6 +49,7 @@ abstract class $DynamicFormCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id', fromJson: asOrNull) String? id,
+      @JsonKey(name: 'title', fromJson: asOrNull) String? title,
       @JsonKey(name: 'elements') List<DynamicFormElement>? elements,
       @JsonKey(name: 'created_user') User? createdUser,
       @JsonKey(name: 'created_at', fromJson: asOrNull) DateTime? createdAt});
@@ -68,6 +71,7 @@ class _$DynamicFormCopyWithImpl<$Res, $Val extends DynamicForm>
   @override
   $Res call({
     Object? id = freezed,
+    Object? title = freezed,
     Object? elements = freezed,
     Object? createdUser = freezed,
     Object? createdAt = freezed,
@@ -76,6 +80,10 @@ class _$DynamicFormCopyWithImpl<$Res, $Val extends DynamicForm>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       elements: freezed == elements
           ? _value.elements
@@ -103,6 +111,7 @@ abstract class _$$DynamicFormImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'id', fromJson: asOrNull) String? id,
+      @JsonKey(name: 'title', fromJson: asOrNull) String? title,
       @JsonKey(name: 'elements') List<DynamicFormElement>? elements,
       @JsonKey(name: 'created_user') User? createdUser,
       @JsonKey(name: 'created_at', fromJson: asOrNull) DateTime? createdAt});
@@ -122,6 +131,7 @@ class __$$DynamicFormImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? title = freezed,
     Object? elements = freezed,
     Object? createdUser = freezed,
     Object? createdAt = freezed,
@@ -130,6 +140,10 @@ class __$$DynamicFormImplCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       elements: freezed == elements
           ? _value._elements
@@ -153,6 +167,7 @@ class __$$DynamicFormImplCopyWithImpl<$Res>
 class _$DynamicFormImpl extends _DynamicForm {
   const _$DynamicFormImpl(
       {@JsonKey(name: 'id', fromJson: asOrNull) this.id,
+      @JsonKey(name: 'title', fromJson: asOrNull) this.title,
       @JsonKey(name: 'elements') final List<DynamicFormElement>? elements,
       @JsonKey(name: 'created_user') this.createdUser,
       @JsonKey(name: 'created_at', fromJson: asOrNull) this.createdAt})
@@ -165,6 +180,9 @@ class _$DynamicFormImpl extends _DynamicForm {
   @override
   @JsonKey(name: 'id', fromJson: asOrNull)
   final String? id;
+  @override
+  @JsonKey(name: 'title', fromJson: asOrNull)
+  final String? title;
   final List<DynamicFormElement>? _elements;
   @override
   @JsonKey(name: 'elements')
@@ -185,7 +203,7 @@ class _$DynamicFormImpl extends _DynamicForm {
 
   @override
   String toString() {
-    return 'DynamicForm(id: $id, elements: $elements, createdUser: $createdUser, createdAt: $createdAt)';
+    return 'DynamicForm(id: $id, title: $title, elements: $elements, createdUser: $createdUser, createdAt: $createdAt)';
   }
 
   /// Create a copy of DynamicForm
@@ -207,6 +225,7 @@ class _$DynamicFormImpl extends _DynamicForm {
 abstract class _DynamicForm extends DynamicForm {
   const factory _DynamicForm(
       {@JsonKey(name: 'id', fromJson: asOrNull) final String? id,
+      @JsonKey(name: 'title', fromJson: asOrNull) final String? title,
       @JsonKey(name: 'elements') final List<DynamicFormElement>? elements,
       @JsonKey(name: 'created_user') final User? createdUser,
       @JsonKey(name: 'created_at', fromJson: asOrNull)
@@ -219,6 +238,9 @@ abstract class _DynamicForm extends DynamicForm {
   @override
   @JsonKey(name: 'id', fromJson: asOrNull)
   String? get id;
+  @override
+  @JsonKey(name: 'title', fromJson: asOrNull)
+  String? get title;
   @override
   @JsonKey(name: 'elements')
   List<DynamicFormElement>? get elements;

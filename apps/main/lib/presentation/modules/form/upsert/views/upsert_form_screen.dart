@@ -76,6 +76,20 @@ class _UpsertFormScreenState extends StateBase<UpsertFormScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: CustomScrollView(
         slivers: [
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: InputContainer(
+              text: state.form.title,
+              fillColor: themeColor.themePrimary,
+              hint: trans.untitledForm,
+              onTextChanged: _onTitleChanged,
+            ),
+          ),
+
           /// Questions
           if (state.elements.isNotEmpty) ...[
             const SliverToBoxAdapter(
@@ -111,6 +125,11 @@ class _UpsertFormScreenState extends StateBase<UpsertFormScreen> {
             child: ThemeButton.outline(
               title: trans.addQuestion,
               onPressed: _onAddNewQuestion,
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
             ),
           ),
         ],
