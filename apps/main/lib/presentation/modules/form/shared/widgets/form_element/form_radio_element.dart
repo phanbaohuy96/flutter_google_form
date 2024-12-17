@@ -33,7 +33,8 @@ class _FormElementRadioWidgetState extends State<FormElementRadioWidget>
     return Column(
       children: [
         ...optionts.map(_buildOption),
-        if (optionts.length < widget.maxOptions) addOptionButton(),
+        if (optionts.length < widget.maxOptions && enableToCustomize)
+          addOptionButton(),
       ],
     );
   }
@@ -61,32 +62,41 @@ class _FormElementRadioWidgetState extends State<FormElementRadioWidget>
           _prefixWidget,
           const SizedBox(width: 12),
           Expanded(
-            child: InputContainer(
-              text: e.lable,
-              withClearButton: false,
-              isDense: true,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 0,
-                vertical: 4,
-              ),
-              onTextChanged: (t) {
-                updateOption(e.copyWith(lable: t));
+            child: Builder(
+              builder: (context) {
+                if (enableToCustomize) {
+                  return InputContainer(
+                    text: e.lable,
+                    withClearButton: false,
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 0,
+                      vertical: 4,
+                    ),
+                    onTextChanged: (t) {
+                      updateOption(e.copyWith(lable: t));
+                    },
+                  );
+                }
+                return Text(e.lable ?? '');
               },
             ),
           ),
-          const SizedBox(width: 8),
-          InkWell(
-            borderRadius: BorderRadius.circular(16),
-            onTap: () => removeOption(e),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-              child: Icon(
-                Icons.close,
-                size: 18,
-                color: Colors.grey.shade600,
+          if (enableToCustomize) ...[
+            const SizedBox(width: 8),
+            InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () => removeOption(e),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                child: Icon(
+                  Icons.close,
+                  size: 18,
+                  color: Colors.grey.shade600,
+                ),
               ),
             ),
-          ),
+          ],
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../data/models/form.dart';
@@ -42,6 +43,8 @@ mixin FormElementStateMixin<T extends StatefulWidget> on State<T> {
 
   DynamicFormElement get element => parent.element;
 
+  bool get enableToCustomize => parent.focused;
+
   void update(DynamicFormElement element) {
     parent.onUpdate?.call(element);
   }
@@ -54,11 +57,13 @@ class FormElementFactoryWidget extends StatelessWidget {
     required this.element,
     this.onUpdate,
     this.onRemove,
+    required this.focused,
   });
 
   final DynamicFormElement element;
   final void Function(DynamicFormElement element)? onUpdate;
   final void Function(DynamicFormElement element)? onRemove;
+  final bool focused;
 
   @override
   Widget build(BuildContext context) {
@@ -66,86 +71,105 @@ class FormElementFactoryWidget extends StatelessWidget {
     final textTheme = context.textTheme;
     return FormElementFactoryInherited(
       factoryWidget: this,
-      child: Column(
-        children: [
-          /// title section
-          _buildTitle(context),
-          const SizedBox(height: 8),
+      child: AnimatedSize(
+        duration: 250.milliseconds,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            /// title section
+            _buildTitle(context),
+            const SizedBox(height: 8),
+            if (focused) ...[
+              /// change element type section
 
-          /// change element type section
-          DropdownWidget<DynamicFormElementType>(
-            items: DynamicFormElementType.values,
-            initial: element.type,
-            itemBuilder: (type) => Text(
-              switch (type) {
-                DynamicFormElementType.radio => trans.mulitpleChoice,
-                DynamicFormElementType.paragraph => trans.paragraph,
-              },
-              style: textTheme.bodyMedium,
-            ),
-            onChanged: (type) {
-              onUpdate!(
-                element.copyWith(
-                  type: type,
-                  // Reset the metadata options when change type of element
-                  metadata: [],
+              DropdownWidget<DynamicFormElementType>(
+                items: DynamicFormElementType.values,
+                initial: element.type,
+                itemBuilder: (type) => Text(
+                  switch (type) {
+                    DynamicFormElementType.radio => trans.mulitpleChoice,
+                    DynamicFormElementType.paragraph => trans.paragraph,
+                  },
+                  style: textTheme.bodyMedium,
                 ),
-              );
-            },
-          ),
-          const SizedBox(height: 8),
-
-          /// body section
-          _buildElement(context),
-
-          /// actions button
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                trans.required,
+                onChanged: (type) {
+                  onUpdate!(
+                    element.copyWith(
+                      type: type,
+                      // Reset the metadata options when change type of element
+                      metadata: [],
+                    ),
+                  );
+                },
               ),
-              const SizedBox(width: 8),
-              SizedBox(
-                height: 32,
-                child: FittedBox(
-                  child: Switch.adaptive(
-                    value: element.required == true,
-                    activeColor: context.themeColor.primary,
-                    onChanged: (value) {
-                      onUpdate!(element.copyWith(required: value));
-                    },
+              const SizedBox(height: 8),
+            ],
+
+            /// body section
+            _buildElement(context),
+            if (focused) ...[
+              /// actions button
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    trans.required,
                   ),
-                ),
-              ),
-              Container(
-                width: 0.5,
-                height: 24,
-                color: Colors.grey,
-                margin: const EdgeInsets.symmetric(horizontal: 8),
-              ),
-              IconButton(
-                padding: EdgeInsets.zero,
-                iconSize: 24,
-                onPressed: () => onRemove?.call(element),
-                icon: const Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    height: 32,
+                    child: FittedBox(
+                      child: Switch.adaptive(
+                        value: element.required == true,
+                        activeColor: context.themeColor.primary,
+                        onChanged: (value) {
+                          onUpdate!(element.copyWith(required: value));
+                        },
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 0.5,
+                    height: 24,
+                    color: Colors.grey,
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    iconSize: 24,
+                    onPressed: () => onRemove?.call(element),
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
               ),
             ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildTitle(BuildContext context) {
     final trans = translate(context);
+    if (!focused) {
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+        child: InputTitleWidget(
+          title: element.title ?? trans.untitled,
+          style: context.textTheme.titleMedium,
+          required: element.required == true,
+        ),
+      );
+    }
 
     return InputContainer(
       text: element.title,
       hint: trans.inputQuestion,
+      enable: focused,
+      readOnly: !focused,
       onTextChanged: (title) {
         onUpdate!(element.copyWith(title: title));
       },

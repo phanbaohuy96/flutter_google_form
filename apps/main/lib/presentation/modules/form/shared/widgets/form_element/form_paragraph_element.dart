@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../../../data/models/form.dart';
 import '../../../../../extentions/extention.dart';
@@ -25,6 +25,8 @@ class _FormElementParagraphWidgetState extends State<FormElementParagraphWidget>
     return InputContainer(
       hint: trans.longAnswerText,
       readOnly: true,
+      fillColor: Colors.transparent,
+      enable: false,
     );
   }
 }
