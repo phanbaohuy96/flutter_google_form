@@ -36,6 +36,12 @@
   "add": "add",
   "other": "other",
   "required": "Required",
+  "untitled": "Untitled",
   "untitledForm": "Untitled form",
-  "questions": "Question(s)"
+  "questions": "Questions",
+  "responses": "Responses",
+  "submit": "Submit",
+  "pleaseFillTheRequiredResponse": "Please fill in required response",
+  "submitAnotherOne": "Submit another one",
+  "submitResponseSuccessfully": "Submit response successfully"
 }

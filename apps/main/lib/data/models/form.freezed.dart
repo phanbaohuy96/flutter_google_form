@@ -729,3 +729,389 @@ abstract class _DynamicFormElementMetadata extends DynamicFormElementMetadata {
   _$$DynamicFormElementMetadataImplCopyWith<_$DynamicFormElementMetadataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
+
+DynamicFormResponse _$DynamicFormResponseFromJson(Map<String, dynamic> json) {
+  return _DynamicFormResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$DynamicFormResponse {
+  @JsonKey(name: 'id', fromJson: asOrNull)
+  String? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'element_id', fromJson: asOrNull)
+  String? get elementId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'element')
+  DynamicFormElement? get element => throw _privateConstructorUsedError;
+  @JsonKey(name: 'form_id', fromJson: asOrNull)
+  String? get formId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'option_id', fromJson: asOrNull)
+  String? get optionId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'option')
+  DynamicFormElementMetadata? get option => throw _privateConstructorUsedError;
+  @JsonKey(name: 'answer', fromJson: asOrNull)
+  String? get answer => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_user')
+  User? get createdUser => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at', fromJson: asOrNull)
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+
+  /// Serializes this DynamicFormResponse to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of DynamicFormResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DynamicFormResponseCopyWith<DynamicFormResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DynamicFormResponseCopyWith<$Res> {
+  factory $DynamicFormResponseCopyWith(
+          DynamicFormResponse value, $Res Function(DynamicFormResponse) then) =
+      _$DynamicFormResponseCopyWithImpl<$Res, DynamicFormResponse>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', fromJson: asOrNull) String? id,
+      @JsonKey(name: 'element_id', fromJson: asOrNull) String? elementId,
+      @JsonKey(name: 'element') DynamicFormElement? element,
+      @JsonKey(name: 'form_id', fromJson: asOrNull) String? formId,
+      @JsonKey(name: 'option_id', fromJson: asOrNull) String? optionId,
+      @JsonKey(name: 'option') DynamicFormElementMetadata? option,
+      @JsonKey(name: 'answer', fromJson: asOrNull) String? answer,
+      @JsonKey(name: 'created_user') User? createdUser,
+      @JsonKey(name: 'created_at', fromJson: asOrNull) DateTime? createdAt});
+
+  $DynamicFormElementCopyWith<$Res>? get element;
+  $DynamicFormElementMetadataCopyWith<$Res>? get option;
+}
+
+/// @nodoc
+class _$DynamicFormResponseCopyWithImpl<$Res, $Val extends DynamicFormResponse>
+    implements $DynamicFormResponseCopyWith<$Res> {
+  _$DynamicFormResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of DynamicFormResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? elementId = freezed,
+    Object? element = freezed,
+    Object? formId = freezed,
+    Object? optionId = freezed,
+    Object? option = freezed,
+    Object? answer = freezed,
+    Object? createdUser = freezed,
+    Object? createdAt = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      elementId: freezed == elementId
+          ? _value.elementId
+          : elementId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      element: freezed == element
+          ? _value.element
+          : element // ignore: cast_nullable_to_non_nullable
+              as DynamicFormElement?,
+      formId: freezed == formId
+          ? _value.formId
+          : formId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      optionId: freezed == optionId
+          ? _value.optionId
+          : optionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      option: freezed == option
+          ? _value.option
+          : option // ignore: cast_nullable_to_non_nullable
+              as DynamicFormElementMetadata?,
+      answer: freezed == answer
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdUser: freezed == createdUser
+          ? _value.createdUser
+          : createdUser // ignore: cast_nullable_to_non_nullable
+              as User?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ) as $Val);
+  }
+
+  /// Create a copy of DynamicFormResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DynamicFormElementCopyWith<$Res>? get element {
+    if (_value.element == null) {
+      return null;
+    }
+
+    return $DynamicFormElementCopyWith<$Res>(_value.element!, (value) {
+      return _then(_value.copyWith(element: value) as $Val);
+    });
+  }
+
+  /// Create a copy of DynamicFormResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DynamicFormElementMetadataCopyWith<$Res>? get option {
+    if (_value.option == null) {
+      return null;
+    }
+
+    return $DynamicFormElementMetadataCopyWith<$Res>(_value.option!, (value) {
+      return _then(_value.copyWith(option: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$DynamicFormResponseImplCopyWith<$Res>
+    implements $DynamicFormResponseCopyWith<$Res> {
+  factory _$$DynamicFormResponseImplCopyWith(_$DynamicFormResponseImpl value,
+          $Res Function(_$DynamicFormResponseImpl) then) =
+      __$$DynamicFormResponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', fromJson: asOrNull) String? id,
+      @JsonKey(name: 'element_id', fromJson: asOrNull) String? elementId,
+      @JsonKey(name: 'element') DynamicFormElement? element,
+      @JsonKey(name: 'form_id', fromJson: asOrNull) String? formId,
+      @JsonKey(name: 'option_id', fromJson: asOrNull) String? optionId,
+      @JsonKey(name: 'option') DynamicFormElementMetadata? option,
+      @JsonKey(name: 'answer', fromJson: asOrNull) String? answer,
+      @JsonKey(name: 'created_user') User? createdUser,
+      @JsonKey(name: 'created_at', fromJson: asOrNull) DateTime? createdAt});
+
+  @override
+  $DynamicFormElementCopyWith<$Res>? get element;
+  @override
+  $DynamicFormElementMetadataCopyWith<$Res>? get option;
+}
+
+/// @nodoc
+class __$$DynamicFormResponseImplCopyWithImpl<$Res>
+    extends _$DynamicFormResponseCopyWithImpl<$Res, _$DynamicFormResponseImpl>
+    implements _$$DynamicFormResponseImplCopyWith<$Res> {
+  __$$DynamicFormResponseImplCopyWithImpl(_$DynamicFormResponseImpl _value,
+      $Res Function(_$DynamicFormResponseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DynamicFormResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? elementId = freezed,
+    Object? element = freezed,
+    Object? formId = freezed,
+    Object? optionId = freezed,
+    Object? option = freezed,
+    Object? answer = freezed,
+    Object? createdUser = freezed,
+    Object? createdAt = freezed,
+  }) {
+    return _then(_$DynamicFormResponseImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      elementId: freezed == elementId
+          ? _value.elementId
+          : elementId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      element: freezed == element
+          ? _value.element
+          : element // ignore: cast_nullable_to_non_nullable
+              as DynamicFormElement?,
+      formId: freezed == formId
+          ? _value.formId
+          : formId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      optionId: freezed == optionId
+          ? _value.optionId
+          : optionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      option: freezed == option
+          ? _value.option
+          : option // ignore: cast_nullable_to_non_nullable
+              as DynamicFormElementMetadata?,
+      answer: freezed == answer
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdUser: freezed == createdUser
+          ? _value.createdUser
+          : createdUser // ignore: cast_nullable_to_non_nullable
+              as User?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$DynamicFormResponseImpl extends _DynamicFormResponse {
+  const _$DynamicFormResponseImpl(
+      {@JsonKey(name: 'id', fromJson: asOrNull) this.id,
+      @JsonKey(name: 'element_id', fromJson: asOrNull) this.elementId,
+      @JsonKey(name: 'element') this.element,
+      @JsonKey(name: 'form_id', fromJson: asOrNull) this.formId,
+      @JsonKey(name: 'option_id', fromJson: asOrNull) this.optionId,
+      @JsonKey(name: 'option') this.option,
+      @JsonKey(name: 'answer', fromJson: asOrNull) this.answer,
+      @JsonKey(name: 'created_user') this.createdUser,
+      @JsonKey(name: 'created_at', fromJson: asOrNull) this.createdAt})
+      : super._();
+
+  factory _$DynamicFormResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DynamicFormResponseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id', fromJson: asOrNull)
+  final String? id;
+  @override
+  @JsonKey(name: 'element_id', fromJson: asOrNull)
+  final String? elementId;
+  @override
+  @JsonKey(name: 'element')
+  final DynamicFormElement? element;
+  @override
+  @JsonKey(name: 'form_id', fromJson: asOrNull)
+  final String? formId;
+  @override
+  @JsonKey(name: 'option_id', fromJson: asOrNull)
+  final String? optionId;
+  @override
+  @JsonKey(name: 'option')
+  final DynamicFormElementMetadata? option;
+  @override
+  @JsonKey(name: 'answer', fromJson: asOrNull)
+  final String? answer;
+  @override
+  @JsonKey(name: 'created_user')
+  final User? createdUser;
+  @override
+  @JsonKey(name: 'created_at', fromJson: asOrNull)
+  final DateTime? createdAt;
+
+  @override
+  String toString() {
+    return 'DynamicFormResponse(id: $id, elementId: $elementId, element: $element, formId: $formId, optionId: $optionId, option: $option, answer: $answer, createdUser: $createdUser, createdAt: $createdAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DynamicFormResponseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.elementId, elementId) ||
+                other.elementId == elementId) &&
+            (identical(other.element, element) || other.element == element) &&
+            (identical(other.formId, formId) || other.formId == formId) &&
+            (identical(other.optionId, optionId) ||
+                other.optionId == optionId) &&
+            (identical(other.option, option) || other.option == option) &&
+            (identical(other.answer, answer) || other.answer == answer) &&
+            (identical(other.createdUser, createdUser) ||
+                other.createdUser == createdUser) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, elementId, element, formId,
+      optionId, option, answer, createdUser, createdAt);
+
+  /// Create a copy of DynamicFormResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DynamicFormResponseImplCopyWith<_$DynamicFormResponseImpl> get copyWith =>
+      __$$DynamicFormResponseImplCopyWithImpl<_$DynamicFormResponseImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DynamicFormResponseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _DynamicFormResponse extends DynamicFormResponse {
+  const factory _DynamicFormResponse(
+      {@JsonKey(name: 'id', fromJson: asOrNull) final String? id,
+      @JsonKey(name: 'element_id', fromJson: asOrNull) final String? elementId,
+      @JsonKey(name: 'element') final DynamicFormElement? element,
+      @JsonKey(name: 'form_id', fromJson: asOrNull) final String? formId,
+      @JsonKey(name: 'option_id', fromJson: asOrNull) final String? optionId,
+      @JsonKey(name: 'option') final DynamicFormElementMetadata? option,
+      @JsonKey(name: 'answer', fromJson: asOrNull) final String? answer,
+      @JsonKey(name: 'created_user') final User? createdUser,
+      @JsonKey(name: 'created_at', fromJson: asOrNull)
+      final DateTime? createdAt}) = _$DynamicFormResponseImpl;
+  const _DynamicFormResponse._() : super._();
+
+  factory _DynamicFormResponse.fromJson(Map<String, dynamic> json) =
+      _$DynamicFormResponseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id', fromJson: asOrNull)
+  String? get id;
+  @override
+  @JsonKey(name: 'element_id', fromJson: asOrNull)
+  String? get elementId;
+  @override
+  @JsonKey(name: 'element')
+  DynamicFormElement? get element;
+  @override
+  @JsonKey(name: 'form_id', fromJson: asOrNull)
+  String? get formId;
+  @override
+  @JsonKey(name: 'option_id', fromJson: asOrNull)
+  String? get optionId;
+  @override
+  @JsonKey(name: 'option')
+  DynamicFormElementMetadata? get option;
+  @override
+  @JsonKey(name: 'answer', fromJson: asOrNull)
+  String? get answer;
+  @override
+  @JsonKey(name: 'created_user')
+  User? get createdUser;
+  @override
+  @JsonKey(name: 'created_at', fromJson: asOrNull)
+  DateTime? get createdAt;
+
+  /// Create a copy of DynamicFormResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DynamicFormResponseImplCopyWith<_$DynamicFormResponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

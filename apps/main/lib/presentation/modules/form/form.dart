@@ -1,3 +1,7 @@
+/// Detail
+export 'detail/dynamic_form_detail.dart';
+
+/// Form route
 export 'form_route.dart';
 
 /// Listing

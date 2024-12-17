@@ -25,7 +25,8 @@ class InputTitleWidget extends StatelessWidget {
           if (required)
             TextSpan(
               text: ' *',
-              style: textTheme.inputRequired,
+              style:
+                  style?.copyWith(color: Colors.red) ?? textTheme.inputRequired,
             ),
         ],
       ),

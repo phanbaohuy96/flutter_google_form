@@ -19,8 +19,8 @@ class ImageConstant extends core_const.CoreImageConstant {
   String get imgMainPageFormHeader => Assets.image.screenHeader;
 
   @override
-  String get logo => Assets.svg.logo;
+  String get logo => Assets.image.icFlutter;
 
   @override
-  String get icDefaultItem => Assets.svg.logo;
+  String get icDefaultItem => Assets.image.icFlutter;
 }

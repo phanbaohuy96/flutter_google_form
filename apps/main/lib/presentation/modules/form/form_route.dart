@@ -15,5 +15,8 @@ class UpsertFormRoute {
 
         /// Listing
         ...FormListingRoute().getAll(settings),
+
+        /// Detail
+        ...DynamicFormDetailRoute().getAll(settings),
       };
 }

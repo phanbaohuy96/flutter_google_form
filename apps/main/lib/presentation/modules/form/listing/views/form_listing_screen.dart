@@ -1,9 +1,11 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../data/models/form.dart';
 import '../../../../../l10n/generated/app_localizations.dart';
 import '../../../../base/base.dart';
 import '../../../../extentions/extention.dart';
+import '../../detail/dynamic_form_detail_coordinator.dart';
 import '../bloc/form_listing_bloc.dart';
 
 part 'form_listing.action.dart';
@@ -63,33 +65,10 @@ class _FormListingScreenState extends StateBase<FormListingScreen> {
         padding: const EdgeInsets.all(16),
         itemBuilder: (context, index) {
           final form = state.data[index];
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    form.title ?? trans.untitledForm,
-                    style: textTheme.headlineSmall,
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Text(
-                        form.createdAt?.toLocalDddmmyyyy(
-                              locale: context.appDateLocale,
-                            ) ??
-                            '',
-                      ),
-                      const Spacer(),
-                      Text(
-                        '${form.elements?.length} ${trans.questions}',
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+          return InkWell(
+            onTap: () => context.goToDynamicFormDetail(object: form),
+            child: DynamicFormItemWidget(
+              form: form,
             ),
           );
         },
@@ -97,6 +76,47 @@ class _FormListingScreenState extends StateBase<FormListingScreen> {
           return const SizedBox(height: 16);
         },
         itemCount: state.data.length,
+      ),
+    );
+  }
+}
+
+class DynamicFormItemWidget extends StatelessWidget {
+  const DynamicFormItemWidget({super.key, required this.form});
+  final DynamicForm form;
+
+  @override
+  Widget build(BuildContext context) {
+    final trans = translate(context);
+    final textTheme = context.textTheme;
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              form.title ?? trans.untitledForm,
+              style: textTheme.titleLarge,
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Text(
+                  form.createdAt?.toLocalDddmmyyyy(
+                        locale: context.appDateLocale,
+                      ) ??
+                      '',
+                ),
+                const Spacer(),
+                Text(
+                  '${form.elements?.length} ${trans.questions}',
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
