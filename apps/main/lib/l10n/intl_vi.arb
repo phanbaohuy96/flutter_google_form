@@ -35,5 +35,7 @@
   "addOption": "Thêm tuỳ chọn",
   "add": "thêm",
   "other": "khác",
-  "required": "Bắt buộc"
+  "required": "Bắt buộc",
+  "untitledForm": "Chưa đặt tên",
+  "questions": "Câu hỏi"
 }

@@ -14,6 +14,7 @@ class DynamicFormDao extends DAO {
 
   DataColumn get idClm =>
       DataColumn(name: 'id', type: DataType.text, isPrimary: true);
+  DataColumn get titleClm => DataColumn(name: 'title', type: DataType.text);
   DataColumn get createdAtClm =>
       DataColumn(name: 'created_at', type: DataType.text);
   DataColumn get metadataClm =>
@@ -24,6 +25,7 @@ class DynamicFormDao extends DAO {
   @override
   List<DataColumn> get columns => [
         idClm,
+        titleClm,
         createdAtClm,
         metadataClm,
         createdUserClm,
@@ -117,6 +119,7 @@ class DynamicFormDao extends DAO {
     });
     return {
       idClm.name: form.id,
+      titleClm.name: form.title,
       createdAtClm.name: form.createdAt != null
           ? jsonEncode(
               form.createdAt!.toIso8601String(),
@@ -139,7 +142,13 @@ class DynamicFormDao extends DAO {
     return DynamicForm(
       id: asOrNull<String>(data[idClm.name])!,
       createdAt: asOrNull(data[createdAtClm.name]) ?? DateTime.now(),
-      elements: jsonDecode(asOrNull<String>(data[metadataClm.name]) ?? ''),
+      title: asOrNull<String>(data[titleClm.name]),
+      elements:
+          (jsonDecode(asOrNull<String>(data[metadataClm.name]) ?? '[]') as List)
+              .map(
+                (e) => DynamicFormElement.fromJson(e),
+              )
+              .toList(),
       createdUser: User.fromJson(
         jsonDecode(asOrNull<String>(data[createdUserClm.name]) ?? '{}'),
       ),

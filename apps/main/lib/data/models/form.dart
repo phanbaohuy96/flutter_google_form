@@ -23,6 +23,7 @@ class DynamicForm with _$DynamicForm {
   @JsonSerializable(explicitToJson: true)
   const factory DynamicForm({
     @JsonKey(name: 'id', fromJson: asOrNull) final String? id,
+    @JsonKey(name: 'title', fromJson: asOrNull) final String? title,
     @JsonKey(name: 'elements') final List<DynamicFormElement>? elements,
     @JsonKey(name: 'created_user') final User? createdUser,
     @JsonKey(name: 'created_at', fromJson: asOrNull) final DateTime? createdAt,

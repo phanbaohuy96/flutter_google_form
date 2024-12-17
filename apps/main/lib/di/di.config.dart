@@ -23,6 +23,12 @@ import '../data/data_source/local/preferences_helper/preferences_helper.dart'
 import '../data/data_source/local/sqlite/dao/dynamic_form_dao.dart' as _i385;
 import '../data/data_source/local/sqlite/sqlite_database.impl.dart' as _i833;
 import '../data/models/form.dart' as _i703;
+import '../presentation/modules/form/listing/bloc/form_listing_bloc.dart'
+    as _i1043;
+import '../presentation/modules/form/listing/interactor/form_listing_interactor.dart'
+    as _i367;
+import '../presentation/modules/form/listing/repository/form_listing_repository.dart'
+    as _i1045;
 import '../presentation/modules/form/upsert/bloc/upsert_form_bloc.dart'
     as _i131;
 import '../presentation/modules/form/upsert/interactor/upsert_form_interactor.dart'
@@ -55,11 +61,17 @@ Future<_i174.GetIt> $initGetIt(
   gh.singleton<_i494.SQLiteDatabase>(() => _i833.SQLiteDatabaseImpl());
   gh.singleton<_i385.DynamicFormDao>(
       () => _i385.DynamicFormDao(gh<_i494.SQLiteDatabase>()));
+  gh.factory<_i1045.FormListingRepository>(
+      () => _i1045.FormListingRepositoryImpl(gh<_i385.DynamicFormDao>()));
   gh.factoryParam<_i494.ThemeDialog, _i409.BuildContext, dynamic>((
     context,
     _,
   ) =>
       _i83.AppThemeDialog(context));
+  gh.factory<_i367.FormListingInteractor>(() =>
+      _i367.FormListingInteractorImpl(gh<_i1045.FormListingRepository>()));
+  gh.factory<_i1043.FormListingBloc>(
+      () => _i1043.FormListingBloc(gh<_i367.FormListingInteractor>()));
   gh.factory<_i631.UpsertFormRepository>(
       () => _i631.UpsertFormRepositoryImpl(gh<_i385.DynamicFormDao>()));
   gh.factory<_i523.UpsertFormInteractor>(

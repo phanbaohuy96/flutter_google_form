@@ -93,7 +93,7 @@ class _DashboardScreenState extends StateBase<DashboardScreen>
                       const SizedBox(height: 16),
                       ThemeButton.primary(
                         title: trans.formListing,
-                        onPressed: context.openDevMode,
+                        onPressed: context.goToFormListing,
                       ),
                     ],
                   ),

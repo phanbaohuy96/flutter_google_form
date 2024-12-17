@@ -15,6 +15,16 @@ extension UpsertFormAction on _UpsertFormScreenState {
     return result;
   }
 
+  void _onTitleChanged(String title) {
+    bloc.add(
+      UpdateFormEvent(
+        bloc.state.form.copyWith(
+          title: title,
+        ),
+      ),
+    );
+  }
+
   void _onAddNewQuestion() {
     bloc.add(AddFormElementEvent());
   }

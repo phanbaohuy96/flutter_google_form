@@ -118,4 +118,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get required => 'Required';
+
+  @override
+  String get untitledForm => 'Untitled form';
+
+  @override
+  String get questions => 'Question(s)';
 }

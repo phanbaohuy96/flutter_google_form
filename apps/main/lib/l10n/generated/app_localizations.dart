@@ -319,6 +319,18 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Bắt buộc'**
   String get required;
+
+  /// No description provided for @untitledForm.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chưa đặt tên'**
+  String get untitledForm;
+
+  /// No description provided for @questions.
+  ///
+  /// In vi, this message translates to:
+  /// **'Câu hỏi'**
+  String get questions;
 }
 
 class _AppLocalizationsDelegate

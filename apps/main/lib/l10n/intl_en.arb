@@ -35,5 +35,7 @@
   "addOption": "Add option",
   "add": "add",
   "other": "other",
-  "required": "Required"
+  "required": "Required",
+  "untitledForm": "Untitled form",
+  "questions": "Question(s)"
 }

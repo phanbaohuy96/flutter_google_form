@@ -30,10 +30,24 @@ class UpsertFormBloc extends AppBlocBase<UpsertFormEvent, UpsertFormState> {
             ),
           ),
         ) {
+    on<UpdateFormEvent>(_onUpdateFormEvent);
     on<AddFormElementEvent>(_onAddFormElementEvent);
     on<RemoveFormElementEvent>(_onRemoveFormElementEvent);
     on<UpdateFormElementEvent>(_onUpdateFormElementEvent);
     on<SaveFormEvent>(_onSaveFormEvent);
+  }
+
+  FutureOr<void> _onUpdateFormEvent(
+    UpdateFormEvent event,
+    Emitter<UpsertFormState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        viewModel: state.viewModel.copyWith(
+          form: event.form,
+        ),
+      ),
+    );
   }
 
   Future<void> _onAddFormElementEvent(

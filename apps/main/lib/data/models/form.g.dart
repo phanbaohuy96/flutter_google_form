@@ -9,6 +9,7 @@ part of 'form.dart';
 _$DynamicFormImpl _$$DynamicFormImplFromJson(Map<String, dynamic> json) =>
     _$DynamicFormImpl(
       id: asOrNull(json['id']),
+      title: asOrNull(json['title']),
       elements: (json['elements'] as List<dynamic>?)
           ?.map((e) => DynamicFormElement.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -21,6 +22,7 @@ _$DynamicFormImpl _$$DynamicFormImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$DynamicFormImplToJson(_$DynamicFormImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'title': instance.title,
       'elements': instance.elements?.map((e) => e.toJson()).toList(),
       'created_user': instance.createdUser?.toJson(),
       'created_at': instance.createdAt?.toIso8601String(),
