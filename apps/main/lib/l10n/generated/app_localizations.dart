@@ -320,6 +320,12 @@ abstract class AppLocalizations {
   /// **'Bắt buộc'**
   String get required;
 
+  /// No description provided for @untitled.
+  ///
+  /// In vi, this message translates to:
+  /// **'Không có tiêu đề'**
+  String get untitled;
+
   /// No description provided for @untitledForm.
   ///
   /// In vi, this message translates to:
@@ -331,6 +337,36 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Câu hỏi'**
   String get questions;
+
+  /// No description provided for @responses.
+  ///
+  /// In vi, this message translates to:
+  /// **'Phản hồi'**
+  String get responses;
+
+  /// No description provided for @submit.
+  ///
+  /// In vi, this message translates to:
+  /// **'Gửi phản hồi'**
+  String get submit;
+
+  /// No description provided for @pleaseFillTheRequiredResponse.
+  ///
+  /// In vi, this message translates to:
+  /// **'Vui lòng phản hồi đủ thông tin yêu cầu'**
+  String get pleaseFillTheRequiredResponse;
+
+  /// No description provided for @submitAnotherOne.
+  ///
+  /// In vi, this message translates to:
+  /// **'Gửi thêm phản hồi'**
+  String get submitAnotherOne;
+
+  /// No description provided for @submitResponseSuccessfully.
+  ///
+  /// In vi, this message translates to:
+  /// **'Gửi yêu phản hồi thành công'**
+  String get submitResponseSuccessfully;
 }
 
 class _AppLocalizationsDelegate

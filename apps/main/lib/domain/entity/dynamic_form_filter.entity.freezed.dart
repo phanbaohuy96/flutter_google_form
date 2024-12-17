@@ -161,3 +161,203 @@ abstract class _DynamicFormFilter extends DynamicFormFilter {
   _$$DynamicFormFilterImplCopyWith<_$DynamicFormFilterImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$DynamicFormResponseFilter {
+  String? get elementId => throw _privateConstructorUsedError;
+  String? get formId => throw _privateConstructorUsedError;
+  String? get optionId => throw _privateConstructorUsedError;
+  DateRange? get timeRange => throw _privateConstructorUsedError;
+
+  /// Create a copy of DynamicFormResponseFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DynamicFormResponseFilterCopyWith<DynamicFormResponseFilter> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DynamicFormResponseFilterCopyWith<$Res> {
+  factory $DynamicFormResponseFilterCopyWith(DynamicFormResponseFilter value,
+          $Res Function(DynamicFormResponseFilter) then) =
+      _$DynamicFormResponseFilterCopyWithImpl<$Res, DynamicFormResponseFilter>;
+  @useResult
+  $Res call(
+      {String? elementId,
+      String? formId,
+      String? optionId,
+      DateRange? timeRange});
+}
+
+/// @nodoc
+class _$DynamicFormResponseFilterCopyWithImpl<$Res,
+        $Val extends DynamicFormResponseFilter>
+    implements $DynamicFormResponseFilterCopyWith<$Res> {
+  _$DynamicFormResponseFilterCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of DynamicFormResponseFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? elementId = freezed,
+    Object? formId = freezed,
+    Object? optionId = freezed,
+    Object? timeRange = freezed,
+  }) {
+    return _then(_value.copyWith(
+      elementId: freezed == elementId
+          ? _value.elementId
+          : elementId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      formId: freezed == formId
+          ? _value.formId
+          : formId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      optionId: freezed == optionId
+          ? _value.optionId
+          : optionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeRange: freezed == timeRange
+          ? _value.timeRange
+          : timeRange // ignore: cast_nullable_to_non_nullable
+              as DateRange?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DynamicFormResponseFilterImplCopyWith<$Res>
+    implements $DynamicFormResponseFilterCopyWith<$Res> {
+  factory _$$DynamicFormResponseFilterImplCopyWith(
+          _$DynamicFormResponseFilterImpl value,
+          $Res Function(_$DynamicFormResponseFilterImpl) then) =
+      __$$DynamicFormResponseFilterImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? elementId,
+      String? formId,
+      String? optionId,
+      DateRange? timeRange});
+}
+
+/// @nodoc
+class __$$DynamicFormResponseFilterImplCopyWithImpl<$Res>
+    extends _$DynamicFormResponseFilterCopyWithImpl<$Res,
+        _$DynamicFormResponseFilterImpl>
+    implements _$$DynamicFormResponseFilterImplCopyWith<$Res> {
+  __$$DynamicFormResponseFilterImplCopyWithImpl(
+      _$DynamicFormResponseFilterImpl _value,
+      $Res Function(_$DynamicFormResponseFilterImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DynamicFormResponseFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? elementId = freezed,
+    Object? formId = freezed,
+    Object? optionId = freezed,
+    Object? timeRange = freezed,
+  }) {
+    return _then(_$DynamicFormResponseFilterImpl(
+      elementId: freezed == elementId
+          ? _value.elementId
+          : elementId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      formId: freezed == formId
+          ? _value.formId
+          : formId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      optionId: freezed == optionId
+          ? _value.optionId
+          : optionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeRange: freezed == timeRange
+          ? _value.timeRange
+          : timeRange // ignore: cast_nullable_to_non_nullable
+              as DateRange?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DynamicFormResponseFilterImpl extends _DynamicFormResponseFilter {
+  const _$DynamicFormResponseFilterImpl(
+      {this.elementId, this.formId, this.optionId, this.timeRange})
+      : super._();
+
+  @override
+  final String? elementId;
+  @override
+  final String? formId;
+  @override
+  final String? optionId;
+  @override
+  final DateRange? timeRange;
+
+  @override
+  String toString() {
+    return 'DynamicFormResponseFilter(elementId: $elementId, formId: $formId, optionId: $optionId, timeRange: $timeRange)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DynamicFormResponseFilterImpl &&
+            (identical(other.elementId, elementId) ||
+                other.elementId == elementId) &&
+            (identical(other.formId, formId) || other.formId == formId) &&
+            (identical(other.optionId, optionId) ||
+                other.optionId == optionId) &&
+            (identical(other.timeRange, timeRange) ||
+                other.timeRange == timeRange));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, elementId, formId, optionId, timeRange);
+
+  /// Create a copy of DynamicFormResponseFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DynamicFormResponseFilterImplCopyWith<_$DynamicFormResponseFilterImpl>
+      get copyWith => __$$DynamicFormResponseFilterImplCopyWithImpl<
+          _$DynamicFormResponseFilterImpl>(this, _$identity);
+}
+
+abstract class _DynamicFormResponseFilter extends DynamicFormResponseFilter {
+  const factory _DynamicFormResponseFilter(
+      {final String? elementId,
+      final String? formId,
+      final String? optionId,
+      final DateRange? timeRange}) = _$DynamicFormResponseFilterImpl;
+  const _DynamicFormResponseFilter._() : super._();
+
+  @override
+  String? get elementId;
+  @override
+  String? get formId;
+  @override
+  String? get optionId;
+  @override
+  DateRange? get timeRange;
+
+  /// Create a copy of DynamicFormResponseFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DynamicFormResponseFilterImplCopyWith<_$DynamicFormResponseFilterImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

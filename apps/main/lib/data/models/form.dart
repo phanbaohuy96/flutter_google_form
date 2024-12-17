@@ -91,3 +91,24 @@ class DynamicFormElementMetadata with _$DynamicFormElementMetadata {
     return other.id == id;
   }
 }
+
+@freezed
+class DynamicFormResponse with _$DynamicFormResponse {
+  @JsonSerializable(explicitToJson: true)
+  const factory DynamicFormResponse({
+    @JsonKey(name: 'id', fromJson: asOrNull) final String? id,
+    @JsonKey(name: 'element_id', fromJson: asOrNull) final String? elementId,
+    @JsonKey(name: 'element') final DynamicFormElement? element,
+    @JsonKey(name: 'form_id', fromJson: asOrNull) final String? formId,
+    @JsonKey(name: 'option_id', fromJson: asOrNull) final String? optionId,
+    @JsonKey(name: 'option') final DynamicFormElementMetadata? option,
+    @JsonKey(name: 'answer', fromJson: asOrNull) final String? answer,
+    @JsonKey(name: 'created_user') final User? createdUser,
+    @JsonKey(name: 'created_at', fromJson: asOrNull) final DateTime? createdAt,
+  }) = _DynamicFormResponse;
+
+  const DynamicFormResponse._();
+
+  factory DynamicFormResponse.fromJson(Map<String, Object?> json) =>
+      _$DynamicFormResponseFromJson(json);
+}

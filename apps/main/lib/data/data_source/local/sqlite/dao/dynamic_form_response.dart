@@ -9,37 +9,42 @@ import '../../../../models/user.dart';
 import '../data_access_object.dart';
 
 @Singleton()
-class DynamicFormDao extends DAO {
-  DynamicFormDao(super.db);
+class DynamicFormResponseDao extends DAO {
+  DynamicFormResponseDao(super.db);
 
   DataColumn get idClm =>
       DataColumn(name: 'id', type: DataType.text, isPrimary: true);
-  DataColumn get titleClm => DataColumn(name: 'title', type: DataType.text);
+  DataColumn get elementIdClm =>
+      DataColumn(name: 'element_id', type: DataType.text);
+  DataColumn get formIdClm => DataColumn(name: 'form_id', type: DataType.text);
+  DataColumn get optionIdClm =>
+      DataColumn(name: 'option_id', type: DataType.text);
+  DataColumn get answerClm => DataColumn(name: 'answer', type: DataType.text);
   DataColumn get createdAtClm =>
       DataColumn(name: 'created_at', type: DataType.text);
-  DataColumn get metadataClm =>
-      DataColumn(name: 'metadata', type: DataType.text);
   DataColumn get createdUserClm =>
       DataColumn(name: 'created_user', type: DataType.text);
 
   @override
   List<DataColumn> get columns => [
         idClm,
-        titleClm,
+        elementIdClm,
+        formIdClm,
+        optionIdClm,
+        answerClm,
         createdAtClm,
-        metadataClm,
         createdUserClm,
       ];
 
   @override
-  String get tableName => SqliteTable.form.name;
+  String get tableName => SqliteTable.formResponse.name;
 
-  Future<List<DynamicForm>> get({
+  Future<List<DynamicFormResponse>> get({
     (String where, List<dynamic> args)? whereOption,
     int? limit,
     int? offset,
   }) {
-    return execute<List<DynamicForm>>(() async {
+    return execute<List<DynamicFormResponse>>(() async {
       final maps = await db.query(
         tableName,
         columns: columnsWhere,
@@ -63,7 +68,7 @@ class DynamicFormDao extends DAO {
   }
 
   Future<bool> upsert(
-    DynamicForm form,
+    DynamicFormResponse form,
   ) async {
     logUtils.d(form.toJson(), '$runtimeType upsert');
     return execute<bool>(() async {
@@ -72,18 +77,6 @@ class DynamicFormDao extends DAO {
         toMap(form),
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
-      return result > 0;
-    });
-  }
-
-  Future<bool> delele(String id) {
-    return execute<bool>(() async {
-      final result = await db.delete(
-        tableName,
-        where: '${idClm.name} = ?',
-        whereArgs: [id],
-      );
-
       return result > 0;
     });
   }
@@ -97,21 +90,19 @@ class DynamicFormDao extends DAO {
   }
 
   Map<String, Object?> toMap(
-    DynamicForm form,
+    DynamicFormResponse form,
   ) {
     return {
       idClm.name: form.id,
-      titleClm.name: form.title,
+      elementIdClm.name: form.elementId,
+      formIdClm.name: form.formId,
+      optionIdClm.name: form.optionId,
+      answerClm.name: form.answer,
       createdAtClm.name: form.createdAt != null
           ? jsonEncode(
               form.createdAt!.toIso8601String(),
             )
           : null,
-      metadataClm.name: jsonEncode([
-        ...?form.elements?.map(
-          (e) => e.toJson(),
-        ),
-      ]),
       createdUserClm.name: form.createdUser != null
           ? jsonEncode(
               form.createdUser!.toJson(),
@@ -120,17 +111,14 @@ class DynamicFormDao extends DAO {
     };
   }
 
-  DynamicForm toObject(Map<String, Object?> data) {
-    return DynamicForm(
-      id: asOrNull<String>(data[idClm.name])!,
+  DynamicFormResponse toObject(Map<String, Object?> data) {
+    return DynamicFormResponse(
+      id: asOrNull<String>(data[idClm.name]),
+      elementId: asOrNull<String>(data[elementIdClm.name]),
+      optionId: asOrNull<String>(data[optionIdClm.name]),
+      formId: asOrNull<String>(data[formIdClm.name]),
+      answer: asOrNull<String>(data[answerClm.name]),
       createdAt: asOrNull(data[createdAtClm.name]) ?? DateTime.now(),
-      title: asOrNull<String>(data[titleClm.name]),
-      elements:
-          (jsonDecode(asOrNull<String>(data[metadataClm.name]) ?? '[]') as List)
-              .map(
-                (e) => DynamicFormElement.fromJson(e),
-              )
-              .toList(),
       createdUser: User.fromJson(
         jsonDecode(asOrNull<String>(data[createdUserClm.name]) ?? '{}'),
       ),

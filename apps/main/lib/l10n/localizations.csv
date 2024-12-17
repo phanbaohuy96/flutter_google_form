@@ -36,5 +36,11 @@ addOption,Thêm tuỳ chọn,Add option
 add,thêm,add
 other,khác,other
 required,Bắt buộc,Required
+untitled,Không có tiêu đề,Untitled
 untitledForm,Chưa đặt tên,Untitled form
-questions,Câu hỏi,Question(s)
+questions,Câu hỏi,Questions
+responses,Phản hồi,Responses
+submit,Gửi phản hồi,Submit
+pleaseFillTheRequiredResponse,Vui lòng phản hồi đủ thông tin yêu cầu,Please fill in required response
+submitAnotherOne,Gửi thêm phản hồi,Submit another one
+submitResponseSuccessfully,Gửi yêu phản hồi thành công,Submit response successfully

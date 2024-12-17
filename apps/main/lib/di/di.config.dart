@@ -21,8 +21,16 @@ import '../data/data_source/local/local_data_manager.dart' as _i655;
 import '../data/data_source/local/preferences_helper/preferences_helper.dart'
     as _i212;
 import '../data/data_source/local/sqlite/dao/dynamic_form_dao.dart' as _i385;
+import '../data/data_source/local/sqlite/dao/dynamic_form_response.dart'
+    as _i858;
 import '../data/data_source/local/sqlite/sqlite_database.impl.dart' as _i833;
 import '../data/models/form.dart' as _i703;
+import '../presentation/modules/form/detail/bloc/dynamic_form_detail_bloc.dart'
+    as _i230;
+import '../presentation/modules/form/detail/interactor/dynamic_form_detail_interactor.dart'
+    as _i124;
+import '../presentation/modules/form/detail/repository/dynamic_form_detail_repository.dart'
+    as _i1069;
 import '../presentation/modules/form/listing/bloc/form_listing_bloc.dart'
     as _i1043;
 import '../presentation/modules/form/listing/interactor/form_listing_interactor.dart'
@@ -61,6 +69,8 @@ Future<_i174.GetIt> $initGetIt(
   gh.singleton<_i494.SQLiteDatabase>(() => _i833.SQLiteDatabaseImpl());
   gh.singleton<_i385.DynamicFormDao>(
       () => _i385.DynamicFormDao(gh<_i494.SQLiteDatabase>()));
+  gh.singleton<_i858.DynamicFormResponseDao>(
+      () => _i858.DynamicFormResponseDao(gh<_i494.SQLiteDatabase>()));
   gh.factory<_i1045.FormListingRepository>(
       () => _i1045.FormListingRepositoryImpl(gh<_i385.DynamicFormDao>()));
   gh.factoryParam<_i494.ThemeDialog, _i409.BuildContext, dynamic>((
@@ -68,6 +78,11 @@ Future<_i174.GetIt> $initGetIt(
     _,
   ) =>
       _i83.AppThemeDialog(context));
+  gh.factory<_i1069.DynamicFormDetailRepository>(
+      () => _i1069.DynamicFormDetailRepositoryImpl(
+            gh<_i385.DynamicFormDao>(),
+            gh<_i858.DynamicFormResponseDao>(),
+          ));
   gh.factory<_i367.FormListingInteractor>(() =>
       _i367.FormListingInteractorImpl(gh<_i1045.FormListingRepository>()));
   gh.factory<_i1043.FormListingBloc>(
@@ -76,6 +91,9 @@ Future<_i174.GetIt> $initGetIt(
       () => _i631.UpsertFormRepositoryImpl(gh<_i385.DynamicFormDao>()));
   gh.factory<_i523.UpsertFormInteractor>(
       () => _i523.UpsertFormInteractorImpl(gh<_i631.UpsertFormRepository>()));
+  gh.factory<_i124.DynamicFormDetailInteractor>(() =>
+      _i124.DynamicFormDetailInteractorImpl(
+          gh<_i1069.DynamicFormDetailRepository>()));
   gh.factoryParam<_i131.UpsertFormBloc, _i703.DynamicForm?, dynamic>((
     form,
     _,
@@ -83,6 +101,14 @@ Future<_i174.GetIt> $initGetIt(
       _i131.UpsertFormBloc(
         form,
         gh<_i523.UpsertFormInteractor>(),
+      ));
+  gh.factoryParam<_i230.DynamicFormDetailBloc, _i703.DynamicForm?, dynamic>((
+    data,
+    _,
+  ) =>
+      _i230.DynamicFormDetailBloc(
+        data,
+        gh<_i124.DynamicFormDetailInteractor>(),
       ));
   return getIt;
 }

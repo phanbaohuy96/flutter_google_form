@@ -1,13 +1,15 @@
 import 'package:core/core.dart';
+import 'package:dartx/dartx.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../data/models/form.dart';
 import '../../../../../extentions/extention.dart';
-import '../dynamic_form_element_widget.dart';
+import '../form_element_response_widget.dart';
+import '../form_element_widget.dart';
 
-class DynamicFormElementRadioWidget extends StatefulWidget {
-  const DynamicFormElementRadioWidget({
+class FormElementRadioWidget extends StatefulWidget {
+  const FormElementRadioWidget({
     super.key,
     this.maxOptions = 5,
   });
@@ -15,13 +17,11 @@ class DynamicFormElementRadioWidget extends StatefulWidget {
   final int maxOptions;
 
   @override
-  State<DynamicFormElementRadioWidget> createState() =>
-      _DynamicFormElementRadioWidgetState();
+  State<FormElementRadioWidget> createState() => _FormElementRadioWidgetState();
 }
 
-class _DynamicFormElementRadioWidgetState
-    extends State<DynamicFormElementRadioWidget>
-    with DynamicFormElementStateMixin {
+class _FormElementRadioWidgetState extends State<FormElementRadioWidget>
+    with FormElementStateMixin {
   List<DynamicFormElementMetadata> get optionts => [...?element.metadata];
 
   @override
@@ -191,6 +191,85 @@ class _DynamicFormElementRadioWidgetState
           ),
         ],
       ),
+    );
+  }
+}
+
+class FormElementResponseRadioWidget extends StatefulWidget {
+  const FormElementResponseRadioWidget({
+    super.key,
+    this.maxOptions = 5,
+  });
+
+  final int maxOptions;
+
+  @override
+  State<FormElementResponseRadioWidget> createState() =>
+      _FormElementResponseRadioWidgetState();
+}
+
+class _FormElementResponseRadioWidgetState
+    extends State<FormElementResponseRadioWidget>
+    with FormElementResponseStateMixin {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ...optionts.map(_buildOptions),
+      ],
+    );
+  }
+
+  Widget _buildOptions(DynamicFormElementMetadata option) {
+    return RadioListTile<DynamicFormElementMetadata>(
+      value: option,
+      groupValue: optionts.firstOrNullWhere(
+        (e) => e.id == response.optionId,
+      ),
+      dense: true,
+      title: option.isOther == true
+          ? Row(
+              children: [
+                Text(
+                  '${option.lable}: ',
+                ),
+                Expanded(
+                  child: InputContainer(
+                    text: response.answer,
+                    isDense: true,
+                    maxLines: null,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 4,
+                      vertical: 4,
+                    ),
+                    onTextChanged: (p0) {
+                      updateResponse(
+                        element,
+                        response.copyWith(
+                          answer: p0,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            )
+          : Text.rich(
+              TextSpan(
+                text: option.lable,
+              ),
+            ),
+      splashRadius: 0,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      onChanged: (DynamicFormElementMetadata? value) {
+        updateResponse(
+          element,
+          response.copyWith(
+            optionId: value?.id,
+            answer: null,
+          ),
+        );
+      },
     );
   }
 }

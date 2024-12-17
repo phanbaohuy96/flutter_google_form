@@ -119,8 +119,27 @@ class AppLocalizationsVi extends AppLocalizations {
   String get required => 'Bắt buộc';
 
   @override
+  String get untitled => 'Không có tiêu đề';
+
+  @override
   String get untitledForm => 'Chưa đặt tên';
 
   @override
   String get questions => 'Câu hỏi';
+
+  @override
+  String get responses => 'Phản hồi';
+
+  @override
+  String get submit => 'Gửi phản hồi';
+
+  @override
+  String get pleaseFillTheRequiredResponse =>
+      'Vui lòng phản hồi đủ thông tin yêu cầu';
+
+  @override
+  String get submitAnotherOne => 'Gửi thêm phản hồi';
+
+  @override
+  String get submitResponseSuccessfully => 'Gửi yêu phản hồi thành công';
 }

@@ -36,6 +36,12 @@
   "add": "thêm",
   "other": "khác",
   "required": "Bắt buộc",
+  "untitled": "Không có tiêu đề",
   "untitledForm": "Chưa đặt tên",
-  "questions": "Câu hỏi"
+  "questions": "Câu hỏi",
+  "responses": "Phản hồi",
+  "submit": "Gửi phản hồi",
+  "pleaseFillTheRequiredResponse": "Vui lòng phản hồi đủ thông tin yêu cầu",
+  "submitAnotherOne": "Gửi thêm phản hồi",
+  "submitResponseSuccessfully": "Gửi yêu phản hồi thành công"
 }

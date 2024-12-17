@@ -7,7 +7,7 @@ import '../../../../../data/models/form.dart';
 import '../../../../../l10n/generated/app_localizations.dart';
 import '../../../../base/base.dart';
 import '../../../../extentions/extention.dart';
-import '../../shared/widgets/dynamic_form_element_widget.dart';
+import '../../shared/widgets/form_element_widget.dart';
 import '../bloc/upsert_form_bloc.dart';
 
 part 'upsert_form.action.dart';
@@ -102,7 +102,7 @@ class _UpsertFormScreenState extends StateBase<UpsertFormScreen> {
                 return Card(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: DynamicFormElementFactoryWidget(
+                    child: FormElementFactoryWidget(
                       element: state.elements[index],
                       onUpdate: _onUpdateElement,
                       onRemove: _onRemoveElement,
