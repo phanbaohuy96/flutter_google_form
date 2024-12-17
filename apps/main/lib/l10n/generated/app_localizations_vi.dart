@@ -142,4 +142,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get submitResponseSuccessfully => 'Gửi yêu phản hồi thành công';
+
+  @override
+  String get clearForm => 'Xoá nháp';
 }

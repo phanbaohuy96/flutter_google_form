@@ -43,5 +43,6 @@
   "submit": "Submit",
   "pleaseFillTheRequiredResponse": "Please fill in required response",
   "submitAnotherOne": "Submit another one",
-  "submitResponseSuccessfully": "Submit response successfully"
+  "submitResponseSuccessfully": "Submit response successfully",
+  "clearForm": "Clear form"
 }

@@ -143,4 +143,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get submitResponseSuccessfully => 'Submit response successfully';
+
+  @override
+  String get clearForm => 'Clear form';
 }

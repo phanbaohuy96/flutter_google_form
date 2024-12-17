@@ -48,7 +48,7 @@ class _FormElementResponseParagraphWidgetState
     final trans = translate(context);
     return InputContainer(
       hint: trans.longAnswerText,
-      text: response.answer,
+      text: response.answer ?? '',
       onTextChanged: (p0) {
         updateResponse(
           element,
