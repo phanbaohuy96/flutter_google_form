@@ -23,3 +23,13 @@
 ```
 - Flutter >=3.24.0
 ```
+
+# Build
+```
+cd apps/main; flutter build apk --release --flavor dev --target="lib/main_dev.dart"
+```
+
+# Setup
+```
+sh clean.sh
+```
