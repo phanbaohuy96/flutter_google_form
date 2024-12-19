@@ -84,7 +84,7 @@ android {
         dev {
             applicationId appSpecificProps.getProperty('app.dev.package')
             resValue "string", "app_name", appSpecificProps.getProperty('app.dev.name')
-            // signingConfig signingConfigs.dev
+            signingConfig signingConfigs.dev
         }
         // staging {
         //     applicationId appSpecificProps.getProperty('app.staging.package')

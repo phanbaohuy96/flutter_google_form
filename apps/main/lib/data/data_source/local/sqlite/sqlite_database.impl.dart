@@ -79,7 +79,7 @@ class SQLiteDatabaseImpl extends SQLiteDatabase {
     final result = await executable();
     _executingCount--;
 
-    await close();
+    // await close();
 
     return result;
   }
